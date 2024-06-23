@@ -16,7 +16,7 @@ function goto
 : ngrok
 clear
 echo "Go to: https://dashboard.ngrok.com/get-started/your-authtoken"
-read -p "Paste Ngrok Authtoken: " CRP="2cY5SeHDcj6PckwjCCZtHXAOa0q_6J3jjb9EcMQh61J4X12sd"
+read -p "Paste Ngrok Authtoken: " CRP=2cY5SeHDcj6PckwjCCZtHXAOa0q_6J3jjb9EcMQh61J4X12sd
 ./ngrok config add-authtoken $CRP 
 clear
 echo "Repo: https://github.com/kmille36/Docker-Ubuntu-Desktop-NoMachine"
@@ -30,7 +30,7 @@ echo "au - Australia (Sydney)"
 echo "sa - South America (Sao Paulo)"
 echo "jp - Japan (Tokyo)"
 echo "in - India (Mumbai)"
-read -p "choose ngrok region: " CRP="us"
+read -p "choose ngrok region: " CRP=us
 ./ngrok tcp --region $CRP 4000 &>/dev/null &
 sleep 1
 if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Ngrok Error! Please try again!" && sleep 1 && goto ngrok; fi
