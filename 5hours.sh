@@ -32,7 +32,7 @@ echo "jp - Japan (Tokyo)"
 echo "in - India (Mumbai)"
 
 ./ngrok http --region in 6900 &>/dev/null &
-sleep 1
+sleep 3
 if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Ngrok Error! Please try again!" && sleep 1 && goto ngrok; fi
 clear
 echo IP Address:
