@@ -31,7 +31,7 @@ echo "sa - South America (Sao Paulo)"
 echo "jp - Japan (Tokyo)"
 echo "in - India (Mumbai)"
 read -p "choose ngrok region: " CRP
-./ngrok tcp --region $CRP 6900 &>/dev/null &
+./ngrok http --region $CRP 6900 &>/dev/null &
 sleep 3
 if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Ngrok Error! Please try again!" && sleep 1 && goto ngrok; fi
 clear
