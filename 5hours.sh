@@ -14,7 +14,7 @@ function goto {
 : ngrok
 clear
 
-./ngrok config add-authtoken $CRP
+./ngrok config add-authtoken 2jzNpyc9c6DspipEJcmaisBwzkF_drLdqmP9ZqFjWerE2xm5
 clear
 
 ./ngrok http 6900 &>/dev/null &
