@@ -37,7 +37,7 @@ if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels
 clear
 echo IP Address:
-curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*"public_url":"https:\/\/([^"]*).*/\1/p'
+curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*"public_url":"http:\/\/([^"]*).*/\1/p'
 seq 1 18540 | while read i; do 
     echo -en "\r Running .     $i s /18540 s"; sleep 0.1
     echo -en "\r Running ..    $i s /18540 s"; sleep 0.1
