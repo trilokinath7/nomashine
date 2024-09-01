@@ -34,7 +34,6 @@ echo "in - India (Mumbai)"
 ./ngrok http --region in 6900 &>/dev/null &
 sleep 1
 if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Ngrok Error! Please try again!" && sleep 1 && goto ngrok; fi
-curl --silent --show-error http://127.0.0.1:4040/api/tunnels
 clear
 echo IP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*"public_url":"https:\/\/([^"]*).*/\1/p'
