@@ -33,7 +33,8 @@ clear
 echo "NoMachine: https://www.nomachine.com/download"
 echo "Done! NoMachine Information:"
 echo "IP Address:"
-curl --silent --show-error http://127.0.0.1:4040/api/tunnels | jq -r '.tunnels[] | select(.proto == "http") | .public_url'
+curl --silent --show-error http://127.0.0.1:4040/api/tunnels
+
 
 echo "User: user"
 echo "Password: 123456"
