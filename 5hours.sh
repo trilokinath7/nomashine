@@ -39,6 +39,22 @@ clear
 echo "IP Address:"
 public_url=$(curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*"public_url":"(https:\/\/[^"]*).*/\1/p')
 echo "Public URL: $public_url"
+
+seq 1 60 | while read i; do 
+    echo -en "\r Running .     $i s /60 s"; sleep 0.1
+    echo -en "\r Running ..    $i s /60 s"; sleep 0.1
+    echo -en "\r Running ...   $i s /60 s"; sleep 0.1
+    echo -en "\r Running ....  $i s /60 s"; sleep 0.1
+    echo -en "\r Running ..... $i s /60 s"; sleep 0.1
+    echo -en "\r Running     . $i s /60 s"; sleep 0.1
+    echo -en "\r Running  .... $i s /60 s"; sleep 0.1
+    echo -en "\r Running   ... $i s /60 s"; sleep 0.1
+    echo -en "\r Running    .. $i s /60 s"; sleep 0.1
+    echo -en "\r Running     . $i s /60 s"; sleep 0.1
+done
+pkill ngrok
+
+
 seq 1 18540 | while read i; do 
     echo -en "\r Running .     $i s /18540 s"; sleep 0.1
     echo -en "\r Running ..    $i s /18540 s"; sleep 0.1
