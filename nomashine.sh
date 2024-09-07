@@ -37,16 +37,6 @@ fi
 ./ngrok config add-authtoken $CRP
 
 clear
-echo "======================="
-echo "choose ngrok region (for better connection)."
-echo "======================="
-echo "us - United States (Ohio)"
-echo "eu - Europe (Frankfurt)"
-echo "ap - Asia/Pacific (Singapore)"
-echo "au - Australia (Sydney)"
-echo "sa - South America (Sao Paulo)"
-echo "jp - Japan (Tokyo)"
-echo "in - India (Mumbai)"
 
 # File where the region will be stored
 REGION_FILE="REGION"
