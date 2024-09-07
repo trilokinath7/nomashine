@@ -16,7 +16,6 @@ function goto
 : ngrok
 clear
 
-#!/bin/bash
 
 # File where auth token will be stored
 TOKEN_FILE="AUTH-TOKEN"
@@ -48,8 +47,26 @@ echo "au - Australia (Sydney)"
 echo "sa - South America (Sao Paulo)"
 echo "jp - Japan (Tokyo)"
 echo "in - India (Mumbai)"
-read -p "choose ngrok region: " CRP
+
+# File where the region will be stored
+REGION_FILE="REGION"
+
+# Check if the REGION file exists and is not empty
+if [ -s "$REGION_FILE" ]; then
+    # Read the region from the file
+    CRP=$(cat "$REGION_FILE")
+    echo "Ngrok region read from file: $CRP."
+else
+    # If the file doesn't exist or is empty, ask for the region
+    read -p "Choose Ngrok region (e.g., us, eu, ap, au, sa, jp, in): " CRP
+    # Save the region to the REGION file
+    echo "$CRP" > "$REGION_FILE"
+    echo "Ngrok region saved to file."
+fi
+
+# Start ngrok with the saved region
 ./ngrok tcp --region $CRP 4000 &>/dev/null &
+
 sleep 1
 if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Ngrok Error! Please try again!" && sleep 1 && goto ngrok; fi
 docker logs nomashine
