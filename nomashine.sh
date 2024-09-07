@@ -35,13 +35,14 @@ if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&
 docker logs nomashine
 clear
 
-ip=$(curl ifconfig.me)
-echo -e "\033[1m$ip\033[0m"
+curl ifconfig.me
+echo
 echo
 
 public_url=$(curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p')
 echo "Public URL: $public_url"
-
+echo
+echo
 seq 1 600 | while read i; do 
     echo -en "\r Running .     $i s /600 s"; sleep 0.1
     echo -en "\r Running ..    $i s /600 s"; sleep 0.1
