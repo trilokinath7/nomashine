@@ -15,8 +15,28 @@ function goto
 
 : ngrok
 clear
-read -p "Paste Ngrok Authtoken: " CRP
+
+#!/bin/bash
+
+# File where auth token will be stored
+TOKEN_FILE="AUTH-TOKEN"
+
+# Check if the AUTH-TOKEN file exists and is not empty
+if [ -s "$TOKEN_FILE" ]; then
+    # Read the token from the file
+    CRP=$(cat "$TOKEN_FILE")
+    echo "Ngrok Authtoken read from file."
+else
+    # If the file doesn't exist or is empty, ask for the token
+    read -p "Paste Ngrok Authtoken: " CRP
+    # Save the token to the AUTH-TOKEN file
+    echo "$CRP" > "$TOKEN_FILE"
+    echo "Ngrok Authtoken saved to file."
+fi
+
+# Add the auth token to ngrok config
 ./ngrok config add-authtoken $CRP
+
 clear
 echo "======================="
 echo "choose ngrok region (for better connection)."
