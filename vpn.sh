@@ -32,3 +32,18 @@ fi
 # Start OpenVPN with the config file
 echo "Starting OpenVPN..."
 sudo openvpn --config "$CONFIG_FILE"
+
+# Create .devcontainer directory and devcontainer.json file
+mkdir -p .devcontainer
+touch .devcontainer/devcontainer.json
+
+# Add command to devcontainer.json to execute OpenVPN
+cat <<EOL > .devcontainer/devcontainer.json
+{
+    "name": "My Dev Container",
+    "runArgs": [
+        "--cap-add=NET_ADMIN"
+    ],
+    "postCreateCommand": "sudo openvpn --config /etc/openvpn/vpngate.ovpn"
+}
+EOL
