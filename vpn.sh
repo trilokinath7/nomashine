@@ -23,8 +23,9 @@ if [ ! -f "$CONFIG_FILE" ]; then
     echo "Enter the VPN config file URL:"
     read VPN_URL
 
-    # Download the config file
-    wget -O "$CONFIG_FILE" "$VPN_URL"
+    # Download the config file with sudo
+    echo "Downloading VPN config file..."
+    sudo wget -O "$CONFIG_FILE" "$VPN_URL"
 else
     echo "VPN config file already exists."
 fi
