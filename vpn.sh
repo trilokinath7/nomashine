@@ -4,16 +4,26 @@
 sudo apt update
 sudo apt install -y openvpn wget
 
-# Check if the VPN config file already exists
-CONFIG_FILE="/etc/openvpn/vpngate.ovpn"
-if [ ! -f "$CONFIG_FILE" ]; then
-    # Prompt the user for the VPN config file URL
-    echo "Enter the VPN config file URL:"
-    read VPN_URL
+#!/bin/bash
 
-    # Download the config file
-    wget -O /etc/openvpn/vpngate.ovpn "$VPN_URL"
+# Prompt user for the OpenVPN URL
+read -p "Enter the OpenVPN download URL: " vpn_url
+
+# Specify the location where the OVPN file will be saved
+output_file=~/Desktop/vpngate.ovpn
+
+# Use wget to download the file from the provided URL
+wget -O "$output_file" "$vpn_url"
+
+# Check if the download was successful
+if [ $? -eq 0 ]; then
+    echo "OpenVPN configuration file downloaded successfully to $output_file."
+else
+    echo "Failed to download the OpenVPN configuration file. Please check the URL."
 fi
 
-# Start OpenVPN with the config file
-sudo openvpn --config "$CONFIG_FILE"
+sudo mkdir -p /etc/openvpn  # Create the directory if it doesn't exist
+sudo mv ~/Desktop/vpngate.ovpn /etc/openvpn/
+
+
+sudo openvpn --config /etc/openvpn/vpngate.ovpn
