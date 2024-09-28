@@ -12,17 +12,19 @@ else
 fi
 
 # Define the path for the OpenVPN config file
-CONFIG_PATH="/etc/openvpn/vpngate.ovpn"
+FILE="/etc/openvpn/vpngate.ovpn"
 
-# Check if the OpenVPN config file is already downloaded
-if [ ! -f "$CONFIG_PATH" ]; then
-    # Ask the user for the download link
-    read -p "Please provide the link to download the OpenVPN config file: " vpn_link
-    # Download the config file with sudo to avoid permission issues
-    sudo wget -O "$CONFIG_PATH" "$vpn_link"
+if [ -f "$FILE" ]; then
+    echo "$FILE exists."
 else
-    echo "The OpenVPN config file already exists at $CONFIG_PATH."
+    echo "$FILE does not exist."
+    read -p "paste link: " CRP
+    wget -O vpngate.ovpn "$CRP"
+    sudo mv ~/vpngate.ovpn /etc/openvpn/
+    sudo openvpn --config /etc/openvpn/vpngate.ovpn
+
 fi
+
 
 # Update resolv.conf with a specific nameserver
 echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
