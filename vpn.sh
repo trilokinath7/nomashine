@@ -18,7 +18,8 @@ CONFIG_PATH="/etc/openvpn/vpngate.ovpn"
 if [ ! -f "$CONFIG_PATH" ]; then
     # Ask the user for the download link
     read -p "Please provide the link to download the OpenVPN config file: " vpn_link
-    wget -O "$CONFIG_PATH" "$vpn_link"
+    # Download the config file with sudo to avoid permission issues
+    sudo wget -O "$CONFIG_PATH" "$vpn_link"
 else
     echo "The OpenVPN config file already exists at $CONFIG_PATH."
 fi
