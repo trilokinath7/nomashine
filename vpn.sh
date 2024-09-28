@@ -21,7 +21,6 @@ else
     read -p "paste link: " CRP
     wget -O vpngate.ovpn "$CRP"
     sudo mv ~/vpngate.ovpn /etc/openvpn/
-    sudo openvpn --config /etc/openvpn/vpngate.ovpn
 
 fi
 
