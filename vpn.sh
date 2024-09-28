@@ -19,7 +19,7 @@ if [ -f "$FILE" ]; then
 else
     echo "$FILE does not exist."
     clear
-    read -p "paste link: " CRP
+    read -p "PASTE YOUR VPN LINK: " CRP
     wget -O vpngate.ovpn "$CRP"
     sudo mv ~/vpngate.ovpn /etc/openvpn/
 
