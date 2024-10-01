@@ -85,18 +85,19 @@ echo "$public_url"
 
 echo
 echo
-seq 1 900 | while read i; do 
-    echo -en "\r Running .     $i s /900 s"; sleep 0.1
-    echo -en "\r Running ..    $i s /900 s"; sleep 0.1
-    echo -en "\r Running ...   $i s /900 s"; sleep 0.1
-    echo -en "\r Running ....  $i s /900 s"; sleep 0.1
-    echo -en "\r Running ..... $i s /900 s"; sleep 0.1
-    echo -en "\r Running     . $i s /900 s"; sleep 0.1
-    echo -en "\r Running  .... $i s /900 s"; sleep 0.1
-    echo -en "\r Running   ... $i s /900 s"; sleep 0.1
-    echo -en "\r Running    .. $i s /900 s"; sleep 0.1
-    echo -en "\r Running     . $i s /900 s"; sleep 0.1
+seq 1 1200 | while read i; do 
+    echo -en "\r Running .     $i s /1200 s"; sleep 0.1
+    echo -en "\r Running ..    $i s /1200 s"; sleep 0.1
+    echo -en "\r Running ...   $i s /1200 s"; sleep 0.1
+    echo -en "\r Running ....  $i s /1200 s"; sleep 0.1
+    echo -en "\r Running ..... $i s /1200 s"; sleep 0.1
+    echo -en "\r Running     . $i s /1200 s"; sleep 0.1
+    echo -en "\r Running  .... $i s /1200 s"; sleep 0.1
+    echo -en "\r Running   ... $i s /1200 s"; sleep 0.1
+    echo -en "\r Running    .. $i s /1200 s"; sleep 0.1
+    echo -en "\r Running     . $i s /1200 s"; sleep 0.1
 done
+
 
 
 pkill ngrok
