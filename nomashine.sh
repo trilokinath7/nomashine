@@ -65,7 +65,7 @@ fi
 
 # Start ngrok with the saved region
 ./ngrok tcp --region $CRP 4000 &>/dev/null &
-
+clear
 sleep 30
 if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Ngrok Error! Please try again!" && sleep 1 && goto ngrok; fi
 docker logs nomashine
