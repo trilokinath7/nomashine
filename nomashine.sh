@@ -57,7 +57,7 @@ if [ -s "$REGION_FILE" ]; then
     echo "Ngrok region read from file: $CRP."
 else
     # If the file doesn't exist or is empty, ask for the region
-    read -p "Choose Ngrok region (e.g., us, eu, ap, au, sa, jp, in): " CRP
+    read -p "Choose Ngrok region ( us, eu, ap, au, sa, jp, in ): " CRP
     # Save the region to the REGION file
     echo "$CRP" > "$REGION_FILE"
     echo "Ngrok region saved to file."
