@@ -70,7 +70,9 @@ sleep 2
 if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Ngrok Error! Please try again!" && sleep 1 && goto ngrok; fi
 sleep 28
 docker logs nomashine
-sleep 1
+clear
+echo Wait for 10 seconds
+sleep 10
 clear
 clear
 
