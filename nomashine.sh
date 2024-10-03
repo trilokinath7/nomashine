@@ -75,6 +75,18 @@ echo Wait for 10 seconds
 sleep 10
 clear
 clear
+filename="STOP-URL"
+
+# Check if the file exists
+if [ ! -f "$filename" ]; then
+    # If the file does not exist, create it and save the URL
+    gh codespace list | grep Available | awk '{print $1}' > "$filename"
+    echo "File '$filename' created and URL saved."
+else
+    echo "File '$filename' already exists."
+fi
+
+clear
 
 curl ifconfig.me
 echo
@@ -118,18 +130,7 @@ seq 1 17000 | while read i; do
     echo -en "\r Running     . $i s /17000 s"; sleep 0.1
 done
 clear
-filename="STOP-URL"
 
-# Check if the file exists
-if [ ! -f "$filename" ]; then
-    # If the file does not exist, create it and save the URL
-    gh codespace list | grep Available | awk '{print $1}' > "$filename"
-    echo "File '$filename' created and URL saved."
-else
-    echo "File '$filename' already exists."
-fi
-
-clear
 
 CRP=$(cat ./STOP-URL)
 
