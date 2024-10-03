@@ -105,17 +105,17 @@ done
 pkill ngrok
 clear
 
-seq 1 18300 | while read i; do 
-    echo -en "\r Running .     $i s /18300 s"; sleep 0.1
-    echo -en "\r Running ..    $i s /18300 s"; sleep 0.1
-    echo -en "\r Running ...   $i s /18300 s"; sleep 0.1
-    echo -en "\r Running ....  $i s /18300 s"; sleep 0.1
-    echo -en "\r Running ..... $i s /18300 s"; sleep 0.1
-    echo -en "\r Running     . $i s /18300 s"; sleep 0.1
-    echo -en "\r Running  .... $i s /18300 s"; sleep 0.1
-    echo -en "\r Running   ... $i s /18300 s"; sleep 0.1
-    echo -en "\r Running    .. $i s /18300 s"; sleep 0.1
-    echo -en "\r Running     . $i s /18300 s"; sleep 0.1
+seq 1 16800 | while read i; do 
+    echo -en "\r Running .     $i s /16800 s"; sleep 0.1
+    echo -en "\r Running ..    $i s /16800 s"; sleep 0.1
+    echo -en "\r Running ...   $i s /16800 s"; sleep 0.1
+    echo -en "\r Running ....  $i s /16800 s"; sleep 0.1
+    echo -en "\r Running ..... $i s /16800 s"; sleep 0.1
+    echo -en "\r Running     . $i s /16800 s"; sleep 0.1
+    echo -en "\r Running  .... $i s /16800 s"; sleep 0.1
+    echo -en "\r Running   ... $i s /16800 s"; sleep 0.1
+    echo -en "\r Running    .. $i s /16800 s"; sleep 0.1
+    echo -en "\r Running     . $i s /16800 s"; sleep 0.1
 done
 clear
 gh codespace stop
