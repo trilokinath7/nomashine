@@ -118,4 +118,19 @@ seq 1 16800 | while read i; do
     echo -en "\r Running     . $i s /16800 s"; sleep 0.1
 done
 clear
-gh codespace stop
+filename="STOP-URL"
+
+# Check if the file exists
+if [ ! -f "$filename" ]; then
+    # If the file does not exist, create it and save the URL
+    gh codespace list | grep Available | awk '{print $1}' > "$filename"
+    echo "File '$filename' created and URL saved."
+else
+    echo "File '$filename' already exists."
+fi
+
+clear
+
+CRP=$(cat ./STOP-URL)
+
+gh codespace stop -c $CRP
