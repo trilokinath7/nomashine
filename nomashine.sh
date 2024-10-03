@@ -75,9 +75,9 @@ echo Wait for 10 seconds
 sleep 10
 clear
 clear
+
 # check for file name STOP-URL 
 filename="STOP-URL"
-
 # Check if the file exists
 if [ ! -f "$filename" ]; then
     # If the file does not exist, create it and save the URL
