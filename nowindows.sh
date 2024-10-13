@@ -93,6 +93,10 @@ echo
 echo
 sleep 1
 CRP=$(cat ./STOP-URL)
+gh codespace ports forward 3000:3000 --codespace $CRP
+clear
+sleep 1
+CRP=$(cat ./STOP-URL)
 gh codespace ports visibility 3000:public --codespace $CRP
 
 CRP=$(cat ./STOP-URL)
