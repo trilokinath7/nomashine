@@ -70,6 +70,7 @@ sleep 2
 if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Ngrok Error! Please try again!" && sleep 1 && goto ngrok; fi
 sleep 28
 docker logs nomashine
+docker logs nomashine
 clear
 echo Wait for 10 seconds
 sleep 10
@@ -118,17 +119,17 @@ done
 pkill ngrok
 clear
 
-seq 1 18000 | while read i; do 
-    echo -en "\r Running .     $i s /18000 s"; sleep 0.1
-    echo -en "\r Running ..    $i s /18000 s"; sleep 0.1
-    echo -en "\r Running ...   $i s /18000 s"; sleep 0.1
-    echo -en "\r Running ....  $i s /18000 s"; sleep 0.1
-    echo -en "\r Running ..... $i s /18000 s"; sleep 0.1
-    echo -en "\r Running     . $i s /18000 s"; sleep 0.1
-    echo -en "\r Running  .... $i s /18000 s"; sleep 0.1
-    echo -en "\r Running   ... $i s /18000 s"; sleep 0.1
-    echo -en "\r Running    .. $i s /18000 s"; sleep 0.1
-    echo -en "\r Running     . $i s /18000 s"; sleep 0.1
+seq 1 16860 | while read i; do 
+    echo -en "\r Running .     $i s /16860 s"; sleep 0.1
+    echo -en "\r Running ..    $i s /16860 s"; sleep 0.1
+    echo -en "\r Running ...   $i s /16860 s"; sleep 0.1
+    echo -en "\r Running ....  $i s /16860 s"; sleep 0.1
+    echo -en "\r Running ..... $i s /16860 s"; sleep 0.1
+    echo -en "\r Running     . $i s /16860 s"; sleep 0.1
+    echo -en "\r Running  .... $i s /16860 s"; sleep 0.1
+    echo -en "\r Running   ... $i s /16860 s"; sleep 0.1
+    echo -en "\r Running    .. $i s /16860 s"; sleep 0.1
+    echo -en "\r Running     . $i s /16860 s"; sleep 0.1
 done
 
 clear
