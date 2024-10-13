@@ -92,6 +92,7 @@ curl ifconfig.me
 echo
 echo
 sleep 1
+CRP=$(cat ./STOP-URL)
 gh codespace ports visibility 3000:public --codespace $CRP
 
 CRP=$(cat ./STOP-URL)
