@@ -94,7 +94,13 @@ curl ifconfig.me
 echo
 echo
 sleep 1
+gh codespace ports visibility 3000:public
+CRP=$(cat ./STOP-URL)
+CODESPACE_URL="https://$CRP-3000.github.dev"
 
+echo "$CODESPACE_URL"
+
+echo
 public_url=$(curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*"public_url":"(https:\/\/[^"]*).*/\1/p')
 echo "$public_url"
 
