@@ -87,18 +87,12 @@ else
 fi
 
 clear
-
-curl ifconfig.me
-echo
-echo
-sleep 1
-CRP=$(cat ./STOP-URL)
-gh codespace ports forward 3000:3000 --codespace $CRP
-clear
-sleep 1
 CRP=$(cat ./STOP-URL)
 gh codespace ports visibility 3000:public --codespace $CRP
-
+clear
+curl ifconfig.me
+echo
+sleep 1
 CRP=$(cat ./STOP-URL)
 CODESPACE_URL="https://$CRP-3000.app.github.dev"
 
