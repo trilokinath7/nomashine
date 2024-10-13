@@ -68,12 +68,10 @@ fi
 clear
 sleep 2
 if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Ngrok Error! Please try again!" && sleep 1 && goto ngrok; fi
-sleep 28
+sleep 2
 docker logs nomashine
 docker logs nomashine
 clear
-echo Wait for 10 seconds
-sleep 10
 clear
 clear
 
@@ -94,9 +92,10 @@ curl ifconfig.me
 echo
 echo
 sleep 1
-gh codespace ports visibility 3000:public
+gh codespace ports visibility 3000:public --codespace $CRP
+
 CRP=$(cat ./STOP-URL)
-CODESPACE_URL="https://$CRP-3000.github.dev"
+CODESPACE_URL="https://$CRP-3000.app.github.dev"
 
 echo "$CODESPACE_URL"
 
